@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Contact List View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CollectionCoreData_Nano" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ContactListViewController" customModule="CollectionCoreData_Nano" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -40,37 +40,71 @@
                                 <rect key="frame" x="20" y="152" width="374" height="602"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xng-C5-FMl">
-                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="itemSize" width="162" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="qa4-C9-z8g">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ContactCell" id="qa4-C9-z8g" customClass="contactListCollectionViewCell" customModule="CollectionCoreData_Nano" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="170" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="170" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASb-mC-JpK">
+                                                    <rect key="frame" x="5" y="15" width="160" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </view>
+                                        <color key="backgroundColor" red="0.75452607870101929" green="0.84688764810562134" blue="0.94018334150314331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="ASb-mC-JpK" secondAttribute="trailing" constant="5" id="A0j-al-voU"/>
+                                            <constraint firstItem="ASb-mC-JpK" firstAttribute="top" secondItem="qa4-C9-z8g" secondAttribute="top" constant="15" id="Nwg-Ta-H8g"/>
+                                            <constraint firstAttribute="bottom" secondItem="ASb-mC-JpK" secondAttribute="bottom" constant="14" id="vcc-Ml-coO"/>
+                                            <constraint firstItem="ASb-mC-JpK" firstAttribute="leading" secondItem="qa4-C9-z8g" secondAttribute="leading" constant="5" id="wVG-gf-ljz"/>
+                                        </constraints>
+                                        <size key="customSize" width="170" height="50"/>
+                                        <connections>
+                                            <outlet property="contactName" destination="ASb-mC-JpK" id="Kof-Pz-Dsf"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EWF-Nx-8qX">
                                 <rect key="frame" x="0.0" y="762" width="414" height="100"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="atZ-OT-c6h">
-                                        <rect key="frame" x="32" y="32" width="350" height="36"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="atZ-OT-c6h" customClass="CustomButton" customModule="CollectionCoreData_Nano" customModuleProvider="target">
+                                        <rect key="frame" x="100" y="32" width="214" height="36"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                         <state key="normal" title="Add contact"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="addContactButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QuO-FX-rjB"/>
+                                            <segue destination="OXB-Wz-ZF0" kind="show" identifier="GoToAddContactScreen" id="36l-DX-caX"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.75452607870101929" green="0.84688764810562134" blue="0.94018334150314331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="atZ-OT-c6h" firstAttribute="top" secondItem="EWF-Nx-8qX" secondAttribute="top" constant="32" id="Ben-ka-GX3"/>
                                     <constraint firstAttribute="bottom" secondItem="atZ-OT-c6h" secondAttribute="bottom" constant="32" id="EZ3-CW-q5d"/>
-                                    <constraint firstItem="atZ-OT-c6h" firstAttribute="left" secondItem="EWF-Nx-8qX" secondAttribute="left" constant="32" id="Eu2-AV-1fO"/>
-                                    <constraint firstAttribute="right" secondItem="atZ-OT-c6h" secondAttribute="right" constant="32" id="ZlV-9I-ZZx"/>
+                                    <constraint firstItem="atZ-OT-c6h" firstAttribute="left" secondItem="EWF-Nx-8qX" secondAttribute="left" constant="100" id="Eu2-AV-1fO"/>
+                                    <constraint firstAttribute="right" secondItem="atZ-OT-c6h" secondAttribute="right" constant="100" id="ZlV-9I-ZZx"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -89,9 +123,149 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="contactCollectionView" destination="G4p-AX-ezX" id="RAQ-yA-fkZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="6" y="21"/>
+        </scene>
+        <!--Add Contact View Controller-->
+        <scene sceneID="kKd-ij-6PZ">
+            <objects>
+                <viewController id="OXB-Wz-ZF0" customClass="AddContactViewController" customModule="CollectionCoreData_Nano" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ifj-OA-bN3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="t2S-41-Ky6">
+                                <rect key="frame" x="20" y="344" width="374" height="216"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="70" translatesAutoresizingMaskIntoConstraints="NO" id="QJc-CW-6Jo">
+                                        <rect key="frame" x="0.0" y="0.0" width="62" height="216"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jws-N9-RoW">
+                                                <rect key="frame" x="0.0" y="0.0" width="62" height="28"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jh6-wR-Zkc">
+                                                <rect key="frame" x="0.0" y="98" width="62" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-Mail:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwH-WU-RGh">
+                                                <rect key="frame" x="0.0" y="192" width="62" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="63" translatesAutoresizingMaskIntoConstraints="NO" id="gjv-eF-26I">
+                                        <rect key="frame" x="72" y="0.0" width="302" height="216"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nBl-xM-jZu">
+                                                <rect key="frame" x="0.0" y="0.0" width="302" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1i0-vr-bFU">
+                                                <rect key="frame" x="0.0" y="93" width="302" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8cO-Rc-5JS">
+                                                <rect key="frame" x="0.0" y="186" width="302" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dxW-6s-Ybg">
+                                <rect key="frame" x="0.0" y="194" width="414" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Contact" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fW0-xJ-HPC">
+                                        <rect key="frame" x="52" y="32" width="310" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
+                                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.75452607870101929" green="0.84688764810562134" blue="0.94018334150314331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="fW0-xJ-HPC" firstAttribute="top" secondItem="dxW-6s-Ybg" secondAttribute="top" constant="32" id="Sii-Ax-rJs"/>
+                                    <constraint firstAttribute="bottom" secondItem="fW0-xJ-HPC" secondAttribute="bottom" constant="32" id="ks9-Qa-rq7"/>
+                                    <constraint firstAttribute="right" secondItem="fW0-xJ-HPC" secondAttribute="right" constant="52" id="sMT-nU-LO1"/>
+                                    <constraint firstItem="fW0-xJ-HPC" firstAttribute="left" secondItem="dxW-6s-Ybg" secondAttribute="left" constant="52" id="xX2-v0-0OM"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qOh-rz-X1Q">
+                                <rect key="frame" x="0.0" y="610" width="414" height="100"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H8t-na-kKe" customClass="CustomButton" customModule="CollectionCoreData_Nano" customModuleProvider="target">
+                                        <rect key="frame" x="105" y="32" width="204" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                        <state key="normal" title="Save contact"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="addContactButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EJ5-iA-z4o"/>
+                                            <action selector="saveContactButtonAction:" destination="OXB-Wz-ZF0" eventType="touchUpInside" id="K6M-qE-VTX"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="GoToContactList" id="hbL-ET-pIz"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.75452607870101929" green="0.84688764810562134" blue="0.94018334150314331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="H8t-na-kKe" firstAttribute="top" secondItem="qOh-rz-X1Q" secondAttribute="top" constant="32" id="486-Y6-oYl"/>
+                                    <constraint firstAttribute="right" secondItem="H8t-na-kKe" secondAttribute="right" constant="105" id="ckQ-Rd-TOq"/>
+                                    <constraint firstItem="H8t-na-kKe" firstAttribute="left" secondItem="qOh-rz-X1Q" secondAttribute="left" constant="105" id="fTi-Yp-s3t"/>
+                                    <constraint firstAttribute="bottom" secondItem="H8t-na-kKe" secondAttribute="bottom" constant="32" id="gVT-cl-TtT"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nYw-C0-x2S" firstAttribute="bottom" secondItem="qOh-rz-X1Q" secondAttribute="bottom" constant="152" id="8b7-sw-U6b"/>
+                            <constraint firstItem="qOh-rz-X1Q" firstAttribute="top" secondItem="t2S-41-Ky6" secondAttribute="bottom" constant="50" id="Tx9-IU-Alq"/>
+                            <constraint firstItem="t2S-41-Ky6" firstAttribute="top" secondItem="dxW-6s-Ybg" secondAttribute="bottom" constant="50" id="U3g-zW-CSw"/>
+                            <constraint firstItem="dxW-6s-Ybg" firstAttribute="trailing" secondItem="nYw-C0-x2S" secondAttribute="trailing" id="W0M-sd-q3B"/>
+                            <constraint firstItem="t2S-41-Ky6" firstAttribute="leading" secondItem="nYw-C0-x2S" secondAttribute="leading" constant="20" id="ZzN-Cy-cP9"/>
+                            <constraint firstItem="dxW-6s-Ybg" firstAttribute="top" secondItem="nYw-C0-x2S" secondAttribute="top" constant="150" id="bQf-tg-rap"/>
+                            <constraint firstItem="dxW-6s-Ybg" firstAttribute="leading" secondItem="nYw-C0-x2S" secondAttribute="leading" id="bho-U5-ber"/>
+                            <constraint firstItem="nYw-C0-x2S" firstAttribute="trailing" secondItem="t2S-41-Ky6" secondAttribute="trailing" constant="20" id="iXL-3Z-ZgX"/>
+                            <constraint firstItem="qOh-rz-X1Q" firstAttribute="leading" secondItem="nYw-C0-x2S" secondAttribute="leading" id="q2u-r3-ljA"/>
+                            <constraint firstItem="qOh-rz-X1Q" firstAttribute="trailing" secondItem="nYw-C0-x2S" secondAttribute="trailing" id="wUc-eG-cIC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="nYw-C0-x2S"/>
+                    </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="8cO-Rc-5JS" id="JDa-Td-gdt"/>
+                        <outlet property="nameTextField" destination="nBl-xM-jZu" id="LcT-td-ONb"/>
+                        <outlet property="phoneTextField" destination="1i0-vr-bFU" id="SW8-dp-zqi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d8P-b7-Vfv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1414" y="21"/>
         </scene>
     </scenes>
 </document>
