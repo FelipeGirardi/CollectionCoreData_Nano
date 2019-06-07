@@ -97,11 +97,7 @@ extension ContactListViewController: UICollectionViewDataSource, UICollectionVie
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ContactCell", for: indexPath as IndexPath) as! contactListCollectionViewCell
         
         let possibleContactImages = [UIImage(named: "blue"), UIImage(named: "red"), UIImage(named: "yellow"), UIImage(named: "green")]
-        
-//        //cell.layer.borderWidth = 2
-//        cell.layer.borderColor = UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1.0).cgColor
-//        cell.layer.cornerRadius = 9
-        
+            
         cell.contactName?.text = self.contactList[indexPath.row].name       // coloca nome na label da CollectionViewCell
         cell.contactEmail = self.contactList[indexPath.row].email
         cell.contactPhone = self.contactList[indexPath.row].phone
