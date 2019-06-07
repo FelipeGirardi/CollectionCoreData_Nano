@@ -6,6 +6,7 @@
 //  Copyright © 2019 Felipe Girardi. All rights reserved.
 //
 
+import CoreData
 import UIKit
 
 class AddContactViewController: UIViewController {
@@ -14,17 +15,28 @@ class AddContactViewController: UIViewController {
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "GoToContactList" {
-            if let contactListController = segue.destination as? ContactListViewController {
-                contactListController.receivedName = nameTextField.text ?? ""       // manda nome para String receivedName da ContactListViewController
-                
-            }
-        }
+    
+    @IBAction func returnButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func saveContactButtonAction(_ sender: CustomButton) {
-        performSegue(withIdentifier: "GoToContactList", sender: nil)
+        
+        let persistingContainer = persistentContainer
+        
+        let contact = Contact(context: persistingContainer!.viewContext)
+        contact.name = nameTextField.text ?? ""
+        contact.phone = phoneTextField.text ?? ""
+        contact.email = emailTextField.text ?? ""
+        
+        
+        if let contactListController = presentingViewController as? ContactListViewController {
+            contactListController.receivedName = nameTextField.text ?? ""
+            contactListController.contactList.append(contact)
+        }
+        
+        
+        dismiss(animated: true, completion: nil)
     }
 
     override func viewDidLoad() {
@@ -32,3 +44,4 @@ class AddContactViewController: UIViewController {
     }
     
 }
+
