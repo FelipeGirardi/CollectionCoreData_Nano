@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		804E35D522AB2B50001DE1BE /* ContactDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804E35D422AB2B50001DE1BE /* ContactDetails.swift */; };
 		C0C2CFCB22A9D5DA003EE6BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C2CFCA22A9D5DA003EE6BD /* AppDelegate.swift */; };
 		C0C2CFCD22A9D5DA003EE6BD /* ContactListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C2CFCC22A9D5DA003EE6BD /* ContactListViewController.swift */; };
 		C0C2CFD022A9D5DA003EE6BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0C2CFCE22A9D5DA003EE6BD /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		804E35D422AB2B50001DE1BE /* ContactDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactDetails.swift; sourceTree = "<group>"; };
 		C0C2CFC722A9D5DA003EE6BD /* CollectionCoreData_Nano.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollectionCoreData_Nano.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0C2CFCA22A9D5DA003EE6BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0C2CFCC22A9D5DA003EE6BD /* ContactListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 		C0C2CFC922A9D5DA003EE6BD /* CollectionCoreData_Nano */ = {
 			isa = PBXGroup;
 			children = (
+				804E35D422AB2B50001DE1BE /* ContactDetails.swift */,
 				C0C2CFCA22A9D5DA003EE6BD /* AppDelegate.swift */,
 				C0C2CFE322A9F012003EE6BD /* contactListCollectionViewCell.swift */,
 				C0C2CFCC22A9D5DA003EE6BD /* ContactListViewController.swift */,
@@ -151,6 +154,7 @@
 				C0C2CFE022A9E46D003EE6BD /* CustomButton.swift in Sources */,
 				C0C2CFD322A9D5DA003EE6BD /* CollectionCoreData_Nano.xcdatamodeld in Sources */,
 				C0C2CFCD22A9D5DA003EE6BD /* ContactListViewController.swift in Sources */,
+				804E35D522AB2B50001DE1BE /* ContactDetails.swift in Sources */,
 				C0C2CFCB22A9D5DA003EE6BD /* AppDelegate.swift in Sources */,
 				C0C2CFE422A9F012003EE6BD /* contactListCollectionViewCell.swift in Sources */,
 			);
